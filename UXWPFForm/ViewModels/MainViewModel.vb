@@ -1,4 +1,5 @@
-﻿Imports DevExpress.Mvvm
+﻿Imports System.Collections.ObjectModel
+Imports DevExpress.Mvvm
 Imports DevExpress.Mvvm.DataAnnotations
 Imports DevExpress.Mvvm.Native
 
@@ -35,7 +36,12 @@ Public Class MainViewModel
     End Sub
     <Command>
     Public Sub GetByCar()
-        Cars2 = New CarService().GetAllCar
+        Dim uniqueCars As New DXObservableCollection(Of Car)(
+            New CarService().GetAllCar() _
+            .GroupBy(Function(c) c.Name) _
+            .Select(Function(g) g.First())
+            )
+        Cars2 = uniqueCars
         RaisePropertiesChanged("Cars2")
     End Sub
     <Command>
