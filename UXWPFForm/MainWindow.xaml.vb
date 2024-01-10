@@ -1,5 +1,4 @@
-﻿Imports System.Text
-Imports DevExpress.Xpf.Core
+﻿Imports DevExpress.Xpf.Core
 
 ''' <summary>
 ''' Interaction logic for MainWindow.xaml

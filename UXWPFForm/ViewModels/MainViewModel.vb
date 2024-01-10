@@ -14,6 +14,16 @@ Public Class MainViewModel
     Public Property Cars2 As DXObservableCollection(Of Car)
     Public Property SelectedCar As Car
     Public Property SelectedCarName As Car
+    Private _search As String
+    Public Property Search As String
+        Get
+            Return _search
+        End Get
+        Set(value As String)
+            _search = value
+            FilterByBox()
+        End Set
+    End Property
 
     Public Sub New()
         GetAllCommand = New DelegateCommand(AddressOf GetAllCar)
@@ -32,5 +42,16 @@ Public Class MainViewModel
     Public Sub GetByName()
         Cars = New DXObservableCollection(Of Car) From {SelectedCarName}
         RaisePropertiesChanged("Cars")
+    End Sub
+    Public Sub FilterByBox()
+        If (String.IsNullOrEmpty(Search)) Then
+
+        Else
+            'Cars = New DXObservableCollection(Of Car) From {New Car With {
+            '.Id = 4,
+            '.Name = "Fiat"}}
+            Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower().Contains(Search.ToLower())))
+            RaisePropertiesChanged("Cars")
+        End If
     End Sub
 End Class

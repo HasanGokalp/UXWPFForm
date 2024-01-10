@@ -43,6 +43,9 @@
                         <dxmvvm:EventToCommand EventName="PopupClosed" Command="{Binding GetByNameCommand}"/>
                     </dxmvvm:Interaction.Behaviors>
                 </dxe:ComboBoxEdit>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,231,0,0" TextWrapping="Wrap" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"
+                      VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label" Content="Ara : " HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
             </Grid>
         </StackPanel>
     </Grid>
