@@ -50,9 +50,9 @@ Public Class MainViewModel
             'Cars = New DXObservableCollection(Of Car) From {New Car With {
             '.Id = 4,
             '.Name = "Fiat"}}
-            'Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower().Contains(Search.ToLower())))
-            Cars2 = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.Equals(Search, StringComparison.OrdinalIgnoreCase)).Where(Function(c) c.Name.Contains(Search.ToLower)))
-            RaisePropertiesChanged("Cars2")
+            Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower().Contains(Search.ToLower())))
+            'Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.Equals(Search, StringComparison.OrdinalIgnoreCase)).Where(Function(c) c.Name.Contains(Search.ToLower)))
+            RaisePropertiesChanged("Cars")
         End If
     End Sub
 End Class
