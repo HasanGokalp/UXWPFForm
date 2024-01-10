@@ -40,7 +40,7 @@
               IsTextEditable="False" Margin="10,286,64,10">
                     <dxmvvm:Interaction.Behaviors>
                         <dxmvvm:EventToCommand EventName="PopupOpening" Command="{Binding GetByCarCommand}"/>
-                        <dxmvvm:EventToCommand EventName="PopupClosed" Command="{Binding GetByNameCommand}"/>
+                        <!--<dxmvvm:EventToCommand EventName="PopupClosed" Command="{Binding GetByNameCommand}"/>-->
                     </dxmvvm:Interaction.Behaviors>
                 </dxe:ComboBoxEdit>
                 <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,231,0,0" TextWrapping="Wrap" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}"

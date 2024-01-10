@@ -50,8 +50,19 @@ Public Class MainViewModel
             'Cars = New DXObservableCollection(Of Car) From {New Car With {
             '.Id = 4,
             '.Name = "Fiat"}}
-            Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower().Contains(Search.ToLower())))
-            'Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.Equals(Search, StringComparison.OrdinalIgnoreCase)).Where(Function(c) c.Name.Contains(Search.ToLower)))
+            'Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower().Contains(Search.ToLower())))
+            'Cars = New DXObservableCollection(Of Car)(Cars.Where(Function(item) item.Name.ToLower.Equals(SelectedCarName.Name.ToLower, StringComparison.OrdinalIgnoreCase)).Where(Function(c) c.Name.Contains(Search.ToLower)).Select(Function(c) c))
+            Dim filteredCars As IEnumerable(Of Car) = Cars
+
+            If SelectedCarName IsNot Nothing Then
+                filteredCars = filteredCars.Where(Function(item) item.Name.Equals(SelectedCarName.Name, StringComparison.OrdinalIgnoreCase))
+            End If
+
+            If Not String.IsNullOrWhiteSpace(Search) Then
+                filteredCars = filteredCars.Where(Function(c) c.Name.ToLower().Contains(Search.ToLower()))
+            End If
+
+            Cars = New DXObservableCollection(Of Car)(filteredCars)
             RaisePropertiesChanged("Cars")
         End If
     End Sub
