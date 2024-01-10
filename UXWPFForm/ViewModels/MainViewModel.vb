@@ -6,10 +6,13 @@ Imports DevExpress.Mvvm.Native
 Public Class MainViewModel
     Inherits ViewModelBase
 
+
     'Commands
     Public Property GetAllCommand As ICommand
     Public Property UpdateCommand As ICommand
     'Public Property GetByNameCommand As ICommand
+
+
     'Props
     Public Property Cars As DXObservableCollection(Of Car)
     Public Property Cars2 As DXObservableCollection(Of Car)

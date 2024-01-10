@@ -14,7 +14,7 @@
     </UserControl.DataContext>
     <Grid>
         <StackPanel Margin="0,0,150,0">
-            <ListBox Name="listBox" Height="800" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" Width="348">
+            <ListBox Name="listBox" Height="800" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCarName}" Width="348">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
